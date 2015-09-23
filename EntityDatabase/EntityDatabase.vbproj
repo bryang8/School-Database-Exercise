@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{02D64016-96CE-455A-ADB9-318A30482E80}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>
+    </RootNamespace>
+    <AssemblyName>EntityDatabase</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EntityDatabase.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EntityDatabase.xml</DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BusinessLogic\Helpers\ViewModelBase.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\CoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\DepartmentService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\OCoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\OfficeAService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\OnsiteCoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\PersonService.vb" />
+    <Compile Include="BusinessLogic\Services\Implementations\StudentGradeService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\ICoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IDepartmentService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IOfficeAService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IOnlineCoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IOnsiteCoursesService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IPeopleService.vb" />
+    <Compile Include="BusinessLogic\Services\Interfaces\IStudentGradeService.vb" />
+    <Compile Include="BusinessLogic\Services\ServiceLocator.vb" />
+    <Compile Include="BusinessObjects\Helpers\DataContext.vb" />
+    <Compile Include="BusinessObjects\Models\Course.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\Department.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\Models.Context.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\Models.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\Models.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\OfficeAssignment.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\OnlineCourse.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\OnsiteCourse.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\Person.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessObjects\Models\StudentGrade.vb">
+      <DependentUpon>Models.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.vb">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Modules\Courses\Views\CoursesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\Departments\Views\DepartmentsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OfficeAs\Views\OfficeAsList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\OnlineCourses\Views\OCoursesList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\OnsiteCourses\Views\OCoursesList.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\People\Views\PeopleList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Modules\StudentGrades\Views\StudentGradesList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Threading.Tasks" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modules\Courses\ViewModels\CoursesViewModel.vb" />
+    <Compile Include="Modules\Courses\Views\CoursesList.xaml.vb">
+      <DependentUpon>CoursesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Departments\ViewModels\DepartmentsViewModel.vb" />
+    <Compile Include="Modules\Departments\Views\DepartmentsList.xaml.vb">
+      <DependentUpon>DepartmentsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OfficeAs\ViewModels\OfficeAViewModel.vb" />
+    <Compile Include="Modules\OfficeAs\Views\OfficeAsList.xaml.vb">
+      <DependentUpon>OfficeAsList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OnlineCourses\ViewModels\OCoursesViewModel.vb" />
+    <Compile Include="Modules\OnlineCourses\Views\OCoursesList.xaml.vb">
+      <DependentUpon>OCoursesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\OnsiteCourses\ViewModels\OCoursesViewModel.vb" />
+    <Compile Include="Modules\OnsiteCourses\Views\OCoursesList.xaml.vb">
+      <DependentUpon>OCoursesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\People\ViewModels\PeopleViewModel.vb" />
+    <Compile Include="Modules\People\Views\PeopleList.xaml.vb">
+      <DependentUpon>PeopleList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\StudentGrades\ViewModels\StudentGradesViewModel.vb" />
+    <Compile Include="Modules\StudentGrades\Views\StudentGradesList.xaml.vb">
+      <DependentUpon>StudentGradesList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <EntityDeploy Include="BusinessObjects\Models\Models.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Models.Designer.vb</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BusinessObjects\Models\Models.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Models.edmx</DependentUpon>
+      <LastGenOutput>Models.Context.vb</LastGenOutput>
+    </None>
+    <None Include="BusinessObjects\Models\Models.edmx.diagram">
+      <DependentUpon>Models.edmx</DependentUpon>
+    </None>
+    <None Include="BusinessObjects\Models\Models.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Models.edmx</DependentUpon>
+      <LastGenOutput>Models.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <AppDesigner Include="My Project\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\schoolIcon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
