@@ -10,9 +10,9 @@
                   ItemsSource="{Binding OfficeAs}" Height="284" Width="512"
                   AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="InstructorIdColumn" Binding="{Binding Path=InstructorID}" Header="Instrunctor ID" Width="SizeToHeader"/>
-                <DataGridTextColumn x:Name="LocationColumn" Binding="{Binding Path=Location}" Header="Location" Width="200"/>
-                <DataGridTextColumn x:Name="TimestampColumn" Binding="{Binding Path=Timestamp}" Header="Timestamp" Width="200"/>
+                <DataGridTextColumn x:Name="InstructorIdColumn" Binding="{Binding Path=Person.FirstName}" Header="Instructor" Width="Auto"/>
+                <DataGridTextColumn x:Name="LocationColumn" Binding="{Binding Path=Location}" Header="Location" Width="Auto"/>
+                <DataGridTextColumn x:Name="TimestampColumn" Binding="{Binding Path=Timestamp}" Header="Timestamp" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>

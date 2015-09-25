@@ -10,10 +10,10 @@
                   ItemsSource="{Binding StudentGrades}" Height="284" Width="512"
                   AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
             <DataGrid.Columns>
-                <DataGridTextColumn x:Name="EnrollmentID" Binding="{Binding Path=EnrollmentID}" Header="EnrollmentID" Width="sizeToHeader"/>
-                <DataGridTextColumn x:Name="CourseID" Binding="{Binding Path=CourseID}" Header="CourseID" Width="sizeToHeader"/>
-                <DataGridTextColumn x:Name="StudentID" Binding="{Binding Path=StudentID}" Header="StudentID" Width="sizeToHeader"/>
-                <DataGridTextColumn x:Name="Grade" Binding="{Binding Path=Grade}" Header="Grade" Width="sizeToHeader"/>
+                <DataGridTextColumn x:Name="EnrollmentID" Binding="{Binding Path=EnrollmentID}" Header="EnrollmentID" Width="Auto"/>
+                <DataGridTextColumn x:Name="CourseID" Binding="{Binding Path=Course.Title}" Header="Course" Width="Auto"/>
+                <DataGridTextColumn x:Name="StudentID" Binding="{Binding Path=Person.FirstName}" Header="Student" Width="Auto"/>
+                <DataGridTextColumn x:Name="Grade" Binding="{Binding Path=Grade}" Header="Grade" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
     </Grid>
