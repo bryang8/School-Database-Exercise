@@ -139,6 +139,7 @@
     <Compile Include="BusinessObjects\Models\StudentGrade.vb">
       <DependentUpon>Models.tt</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\Helpers\RelayCommad.vb" />
     <Compile Include="MainWindow.xaml.vb">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -158,6 +159,10 @@
     <Page Include="Modules\OnlineCourses\Views\OCoursesList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Modules\People\Views\Add_EditPerson.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Modules\OnsiteCourses\Views\OCoursesList.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -208,7 +213,11 @@
     <Compile Include="Modules\OnlineCourses\Views\OCoursesList.xaml.vb">
       <DependentUpon>OCoursesList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\People\ViewModels\Add_EditPersonVIewModel.vb" />
     <Compile Include="Modules\OnsiteCourses\ViewModels\OCoursesViewModel.vb" />
+    <Compile Include="Modules\People\Views\Add_EditPerson.xaml.vb">
+      <DependentUpon>Add_EditPerson.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\OnsiteCourses\Views\OCoursesList.xaml.vb">
       <DependentUpon>OCoursesList.xaml</DependentUpon>
     </Compile>
