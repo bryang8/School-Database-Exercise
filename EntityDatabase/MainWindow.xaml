@@ -8,7 +8,7 @@
     xmlns:onsiteCourses="clr-namespace:Modules.OnsiteCourses.Views"
     xmlns:ofAssignments="clr-namespace:Modules.OfficeAs.Views"
     xmlns:studentGrades="clr-namespace:Modules.StudentGrades.Views"
-    Title="SchoolManagement" Height="397" Width="578" Icon="Resources/Images/schoolIcon.png">
+    Title="SchoolManagement" Height="397" Width="578" Icon="Resources/Images/schoolIcon.png" WindowStartupLocation="CenterScreen">
     <Grid>
         <TabControl HorizontalAlignment="Left" Margin="0,0,0,0" VerticalAlignment="Top" Width="568" Height="377" BorderBrush="White">
             <TabItem  Header="Departments" BorderBrush="White">

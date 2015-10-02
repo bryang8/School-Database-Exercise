@@ -6,14 +6,17 @@
              mc:Ignorable="d" 
              d:DesignHeight="348" d:DesignWidth="569">
     <Grid Name="MainGrid">
-        <DataGrid HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"
+        <DataGrid HorizontalAlignment="Left" Margin="23,10,0,0" VerticalAlignment="Top"
                   ItemsSource="{Binding Departments}" Height="284" Width="512"
-                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
+                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedItem="{Binding Selected}">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="DepartmentIdColumn" Binding="{Binding Path=DepartmentID}" Header="ID" Width="40"/>
                 <DataGridTextColumn x:Name="NameColumn" Binding="{Binding Path=Name}" Header="Name" Width="200"/>
                 <DataGridTextColumn x:Name="BudgetColumn" Binding="{Binding Path=Budget}" Header="Budget" Width="200"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="366,305,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="460,305,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </UserControl>
