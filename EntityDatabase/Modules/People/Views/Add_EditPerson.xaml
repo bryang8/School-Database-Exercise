@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             mc:Ignorable="d"  Width="390" Height="160" Icon="/EntityDatabase;component/Resources/Images/schoolIcon.png">
-    <Grid Width="360" Background="White">
+             mc:Ignorable="d"  Width="403" Height="198" Icon="/EntityDatabase;component/Resources/Images/schoolIcon.png" ResizeMode="NoResize">
+    <Grid Background="White" x:Name="Grid" Margin="12,0,4,0">
         <Label Content="First Name:" Margin="33,19,0,0" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Label Content="Last Name:" Margin="33,49,0,0" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Text="{Binding FirstName}" Margin="113,22,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Text="{Binding LastName}" Margin="113,52,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="Aceptar" HorizontalAlignment="Left" Margin="145,95,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
-        <Button Content="Cancelar"  HorizontalAlignment="Left" Margin="247,95,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
+        <RadioButton Content="Student" IsChecked="{Binding studentButton}" HorizontalAlignment="Left" Margin="58,93,0,0" VerticalAlignment="Top"/>
+        <RadioButton Content="Instructor" IsChecked="{Binding instructorButton}" HorizontalAlignment="Left" Margin="149,93,0,0" VerticalAlignment="Top"/>
+        <Button Content="Aceptar" Command="{Binding OkButton}" HorizontalAlignment="Left" Margin="161,127,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
+        <Button Content="Cancelar" Command="{Binding CancelButton}" HorizontalAlignment="Left" Margin="263,127,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
     </Grid>
 </Window>
