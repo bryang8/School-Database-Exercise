@@ -13,7 +13,6 @@ Namespace Modules.Courses.ViewModels
         Private _delete As ICommand
         Private _insert As ICommand
         Private _selected As Course
-        Private _courseToInsert As Course
         Private _courses As ObservableCollection(Of Course)
         Private dataAccess As ICoursesService
 
@@ -46,9 +45,9 @@ Namespace Modules.Courses.ViewModels
 
         Sub DeleteDB()
             If Selected IsNot Nothing Then
-                DataContext.DBEntities.Courses.Remove((From per In DataContext.DBEntities.Courses
-                                 Where Selected.CourseID = per.CourseID
-                                 Select per).FirstOrDefault)
+                DataContext.DBEntities.Courses.Remove((From item In DataContext.DBEntities.Courses
+                                 Where Selected.CourseID = item.CourseID
+                                 Select item).FirstOrDefault)
                 DataContext.DBEntities.SaveChanges()
                 Refresh()
             End If
@@ -72,16 +71,6 @@ Namespace Modules.Courses.ViewModels
             End Get
             Set(value As ICommand)
                 _insert = value
-            End Set
-        End Property
-
-        Public Property AddCourse As Course
-            Get
-                Return _courseToInsert
-            End Get
-            Set(value As Course)
-                _courseToInsert = value
-                OnPropertyChanged("InsertDepartment")
             End Set
         End Property
         Sub AddDepartmentToDB()

@@ -15,7 +15,6 @@ Namespace Modules.OnlineCourses.ViewModels
         Private _delete As ICommand
         Private _insert As ICommand
         Private _selected As OnlineCourse
-        Private _courseToInsert As OnlineCourse
 
         Public Property OnlineCourses As ObservableCollection(Of OnlineCourse)
             Get
@@ -46,9 +45,9 @@ Namespace Modules.OnlineCourses.ViewModels
 
         Sub DeleteDB()
             If Selected IsNot Nothing Then
-                DataContext.DBEntities.OnlineCourses.Remove((From per In DataContext.DBEntities.OnlineCourses
-                                 Where Selected.CourseID = per.CourseID And Selected.URL = per.URL
-                                 Select per).FirstOrDefault)
+                DataContext.DBEntities.OnlineCourses.Remove((From item In DataContext.DBEntities.OnlineCourses
+                                 Where Selected.CourseID = item.CourseID And Selected.URL = item.URL
+                                 Select item).FirstOrDefault)
                 DataContext.DBEntities.SaveChanges()
                 Refresh()
             End If
@@ -75,15 +74,6 @@ Namespace Modules.OnlineCourses.ViewModels
             End Set
         End Property
 
-        Public Property AddCourse As OnlineCourse
-            Get
-                Return _courseToInsert
-            End Get
-            Set(value As OnlineCourse)
-                _courseToInsert = value
-                OnPropertyChanged("OnlineCourse")
-            End Set
-        End Property
         Sub AddDepartmentToDB()
             Using school As New SchoolEntities
                 _course = New Add_EditOnlineCourse

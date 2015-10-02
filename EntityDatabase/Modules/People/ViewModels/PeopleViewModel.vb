@@ -15,7 +15,6 @@ Namespace Modules.People.ViewModels
         Private _delete As ICommand
         Private _insert As ICommand
         Private _selected As Person
-        Private _personToInsert As Person
 
         Public Property People As ObservableCollection(Of Person)
             Get
@@ -46,9 +45,9 @@ Namespace Modules.People.ViewModels
 
         Sub DeleteDB()
             If Selected IsNot Nothing Then
-                DataContext.DBEntities.People.Remove((From per In DataContext.DBEntities.People
-                                 Where Selected.PersonID = per.PersonID
-                                 Select per).FirstOrDefault)
+                DataContext.DBEntities.People.Remove((From item In DataContext.DBEntities.People
+                                 Where Selected.PersonID = item.PersonID
+                                 Select item).FirstOrDefault)
                 DataContext.DBEntities.SaveChanges()
                 Refresh()
             End If
@@ -77,15 +76,6 @@ Namespace Modules.People.ViewModels
             End Set
         End Property
 
-        Public Property AddPerson As Person
-            Get
-                Return _personToInsert
-            End Get
-            Set(value As Person)
-                _personToInsert = value
-                OnPropertyChanged("InsertPerson")
-            End Set
-        End Property
         Sub AddPersonToDB()
             Using school As New SchoolEntities
                 _person = New Add_EditPerson

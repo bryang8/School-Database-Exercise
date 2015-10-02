@@ -1,0 +1,18 @@
+﻿<Window x:Class="Add_EditStudentGrade"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                WindowStartupLocation="CenterScreen"
+             mc:Ignorable="d"  Width="403" Height="209.849" Icon="/EntityDatabase;component/Resources/Images/schoolIcon.png" ResizeMode="NoResize">
+    <Grid Background="White" x:Name="Grid" Margin="12,0,4,1">
+        <Label Content="Course:" Margin="33,19,0,0" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" SelectedItem="{Binding SelectedCourse}" ItemsSource="{Binding Courses}" DisplayMemberPath="Title" Margin="113,22,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox Margin="113,53,0,0" Height="20" SelectedItem="{Binding SelectedStudent}" ItemsSource="{Binding Students}" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top" DisplayMemberPath="FirstName"/>
+        <TextBox Text="{Binding Grade}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="113,81,0,0" Width="200" Height="20"/>
+        <Button Content="Aceptar" Command="{Binding OkButton}" HorizontalAlignment="Left" Margin="172,133,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
+        <Button Content="Cancelar" Command="{Binding CancelButton}" HorizontalAlignment="Left" Margin="274,133,0,0" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
+        <Label Content="Student:" HorizontalAlignment="Left" Margin="32,48,0,0" VerticalAlignment="Top"/>
+        <Label Content="Grade:" HorizontalAlignment="Left" Margin="32,75,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

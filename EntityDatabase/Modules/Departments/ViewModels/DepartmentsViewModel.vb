@@ -13,7 +13,6 @@ Namespace Modules.Departments.ViewModels
         Private _delete As ICommand
         Private _insert As ICommand
         Private _selected As Department
-        Private _departmentToInsert As Department
         Private _departments As ObservableCollection(Of Department)
         Private dataAccess As IDepartmentService
 
@@ -46,9 +45,9 @@ Namespace Modules.Departments.ViewModels
 
         Sub DeleteDB()
             If Selected IsNot Nothing Then
-                DataContext.DBEntities.Departments.Remove((From per In DataContext.DBEntities.Departments
-                                 Where Selected.DepartmentID = per.DepartmentID
-                                 Select per).FirstOrDefault)
+                DataContext.DBEntities.Departments.Remove((From item In DataContext.DBEntities.Departments
+                                 Where Selected.DepartmentID = item.DepartmentID
+                                 Select item).FirstOrDefault)
                 DataContext.DBEntities.SaveChanges()
                 Refresh()
             End If
@@ -73,16 +72,6 @@ Namespace Modules.Departments.ViewModels
             End Get
             Set(value As ICommand)
                 _insert = value
-            End Set
-        End Property
-
-        Public Property AddDepartment As Department
-            Get
-                Return _departmentToInsert
-            End Get
-            Set(value As Department)
-                _departmentToInsert = value
-                OnPropertyChanged("InsertDepartment")
             End Set
         End Property
         Sub AddDepartmentToDB()

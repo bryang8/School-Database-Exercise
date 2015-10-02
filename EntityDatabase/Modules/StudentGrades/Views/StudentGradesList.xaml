@@ -6,9 +6,9 @@
              mc:Ignorable="d" 
  d:DesignHeight="348" d:DesignWidth="569">
     <Grid Name="MainGrid">
-        <DataGrid HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"
-                  ItemsSource="{Binding StudentGrades}" Height="284" Width="512"
-                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid HorizontalAlignment="Left" Margin="27,10,0,0" VerticalAlignment="Top"
+                  ItemsSource="{Binding StudentGrades}" Height="264" Width="512"
+                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedItem="{Binding Selected}">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="EnrollmentID" Binding="{Binding Path=EnrollmentID}" Header="EnrollmentID" Width="Auto"/>
                 <DataGridTextColumn x:Name="CourseID" Binding="{Binding Path=Course.Title}" Header="Course" Width="Auto"/>
@@ -16,5 +16,7 @@
                 <DataGridTextColumn x:Name="Grade" Binding="{Binding Path=Grade}" Header="Grade" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add"  Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="384,279,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="464,279,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

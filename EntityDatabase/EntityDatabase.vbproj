@@ -184,6 +184,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\StudentGrades\Views\Add_EditStudentGrade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\StudentGrades\Views\StudentGradesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -249,7 +253,11 @@
     <Compile Include="Modules\People\Views\PeopleList.xaml.vb">
       <DependentUpon>PeopleList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\StudentGrades\ViewModels\Add_EditStudentGradeVM.vb" />
     <Compile Include="Modules\StudentGrades\ViewModels\StudentGradesViewModel.vb" />
+    <Compile Include="Modules\StudentGrades\Views\Add_EditStudentGrade.xaml.vb">
+      <DependentUpon>Add_EditStudentGrade.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\StudentGrades\Views\StudentGradesList.xaml.vb">
       <DependentUpon>StudentGradesList.xaml</DependentUpon>
     </Compile>
@@ -274,6 +282,7 @@
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EntityDeploy Include="BusinessObjects\Models\Models.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
