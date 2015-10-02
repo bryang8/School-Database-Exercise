@@ -10,7 +10,7 @@
         <Label Content="Credits:" Margin="33,49,0,0" Height="30" Width="100" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Text="{Binding Title}" Margin="113,22,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <TextBox Text="{Binding Credits}" Margin="113,52,0,0" Height="20" Width="200" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <ComboBox HorizontalAlignment="Left" SelectedItem="{Binding selectedDepartment}" ItemsSource="{Binding DepartmentsNames}" Margin="113,84,0,0" VerticalAlignment="Top" Width="200"/>
+        <ComboBox HorizontalAlignment="Left" SelectedItem="{Binding SelectedDepartment}" ItemsSource="{Binding Departments}" DisplayMemberPath="Name" Margin="113,84,0,0" VerticalAlignment="Top" Width="200"/>
         <Button Content="Aceptar" Command="{Binding OkButton}" HorizontalAlignment="Left" Margin="172,127,0,-5" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
         <Button Content="Cancelar" Command="{Binding CancelButton}" HorizontalAlignment="Left" Margin="274,127,0,-5" VerticalAlignment="Top" Width="97" RenderTransformOrigin="-0.163,0.379"/>
         <Label Content="Department:" HorizontalAlignment="Left" Margin="32,79,0,0" VerticalAlignment="Top"/>

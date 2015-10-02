@@ -51,7 +51,11 @@ Namespace Modules.Departments.ViewModels
 
         Sub OkCommand()
             Try
-                _department.StartDate = Date.Now
+                Dim departments As IQueryable(Of Department) = DataContext.DBEntities.Departments
+                _department.StartDate = Date.Today
+                For Each element In departments
+                    _department.DepartmentID = Integer.Parse(element.DepartmentID.ToString) + 1
+                Next
                 DataContext.DBEntities.Departments.Add(_department)
                 DataContext.DBEntities.SaveChanges()
                 _window.Close()

@@ -13,7 +13,6 @@ Namespace Modules.Courses.ViewModels
         Public _okCommand As ICommand
         Public _cancelCommand As ICommand
         Public _window As Add_EditCourse
-        Private _departmentsNames As ObservableCollection(Of String)
         Private _departments As ObservableCollection(Of Department)
         Private _selectedDepartment As Department
         Private dataAccess As IDepartmentService
@@ -39,6 +38,26 @@ Namespace Modules.Courses.ViewModels
             End Set
         End Property
 
+        Public Property SelectedDepartment As Department
+            Get
+                Return _selectedDepartment
+            End Get
+            Set(value As Department)
+                _course.Department = value
+                OnPropertyChanged("SelectedDepartment")
+            End Set
+        End Property
+
+        Public Property Departments As ObservableCollection(Of Department)
+            Get
+                Return _departments
+            End Get
+            Set(value As ObservableCollection(Of Department))
+                _departments = value
+                OnPropertyChanged("Departments")
+            End Set
+        End Property
+
         Public ReadOnly Property OkButton As ICommand
             Get
                 If Me._okCommand Is Nothing Then
@@ -59,11 +78,15 @@ Namespace Modules.Courses.ViewModels
 
         Sub OkCommand()
             Try
+                Dim courses As IQueryable(Of Course) = DataContext.DBEntities.Courses
+                For Each element In Courses
+                    _course.CourseID = Integer.Parse(element.CourseID.ToString) + 1
+                Next
                 DataContext.DBEntities.Courses.Add(_course)
                 DataContext.DBEntities.SaveChanges()
                 _window.Close()
             Catch ex As Exception
-                MessageBox.Show("No se ha podido ingresar el departamentp", MsgBoxStyle.Critical)
+                MessageBox.Show("No se ha podido ingresar el curso", MsgBoxStyle.Critical)
             End Try
         End Sub
 
@@ -72,6 +95,11 @@ Namespace Modules.Courses.ViewModels
         End Sub
 
         Sub New(ByRef view As Add_EditCourse)
+            _departments = New ObservableCollection(Of Department)
+            Dim departments As IQueryable(Of Department) = DataContext.DBEntities.Departments
+            For Each elemet In departments
+                _departments.Add(elemet)
+            Next
             Me._window = view
         End Sub
     End Class
