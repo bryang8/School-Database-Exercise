@@ -164,6 +164,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Modules\OnlineCourses\Views\Add_EditOnlineCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\OnlineCourses\Views\OCoursesList.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -225,7 +229,11 @@
     <Compile Include="Modules\OfficeAs\Views\OfficeAsList.xaml.vb">
       <DependentUpon>OfficeAsList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modules\OnlineCourses\ViewModels\Add_EditOnlineCourseVM.vb" />
     <Compile Include="Modules\OnlineCourses\ViewModels\OCoursesViewModel.vb" />
+    <Compile Include="Modules\OnlineCourses\Views\Add_EditOnlineCourse.xaml.vb">
+      <DependentUpon>Add_EditOnlineCourse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\OnlineCourses\Views\OCoursesList.xaml.vb">
       <DependentUpon>OCoursesList.xaml</DependentUpon>
     </Compile>

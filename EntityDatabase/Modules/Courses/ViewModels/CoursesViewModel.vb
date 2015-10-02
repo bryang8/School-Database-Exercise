@@ -110,59 +110,5 @@ Namespace Modules.Courses.ViewModels
             Refresh()
         End Sub
 
-        Public _toAdd As New Course
-        Public _okButton As ICommand
-        Public _cancelButton As ICommand
-        Public Property Title As String
-            Get
-                Return Me._toAdd.Title
-            End Get
-            Set(value As String)
-                Me._toAdd.Title = value
-                OnPropertyChanged("Title")
-            End Set
-        End Property
-
-        Public Property Credits As String
-            Get
-                Return Me._toAdd.Credits
-            End Get
-            Set(value As String)
-                Me._toAdd.Credits = value
-                OnPropertyChanged("Credits")
-            End Set
-        End Property
-
-        Public ReadOnly Property OkButton As ICommand
-            Get
-                If Me._okButton Is Nothing Then
-                    Me._okButton = New RelayCommand(AddressOf OkCommand)
-                End If
-                Return Me._okButton
-            End Get
-        End Property
-
-        Public ReadOnly Property CancelButton As ICommand
-            Get
-                If Me._cancelButton Is Nothing Then
-                    Me._cancelButton = New RelayCommand(AddressOf CancelCommand)
-                End If
-                Return Me._cancelButton
-            End Get
-        End Property
-
-        Sub OkCommand()
-            Try
-                DataContext.DBEntities.Courses.Add(_toAdd)
-                DataContext.DBEntities.SaveChanges()
-                _course.Close()
-            Catch ex As Exception
-                MsgBox("No se ha podido ingresar la persona", MsgBoxStyle.Critical)
-            End Try
-        End Sub
-
-        Sub CancelCommand()
-            _course.Close()
-        End Sub
     End Class
 End Namespace

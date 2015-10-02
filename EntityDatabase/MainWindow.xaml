@@ -21,7 +21,7 @@
                 <people:PeopleList x:Name="PeopleUserControl" Margin="-10,-21,10,21"/>
             </TabItem>
             <TabItem Header="Online Courses" BorderBrush="White">
-                <oCourses:OCoursesList x:Name="OnlineCoursesUserControl" Margin="-10,-21,10,21"/>
+                <oCourses:OCoursesList x:Name="OnlineCoursesUserControl"/>
             </TabItem>
             <TabItem Header="Onsite Courses" BorderBrush="White">
                 <onsiteCourses:OCoursesList x:Name="OnsiteCoursesUserControl" Margin="-10,-21,10,21"/>

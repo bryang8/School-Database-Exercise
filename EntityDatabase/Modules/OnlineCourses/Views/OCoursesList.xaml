@@ -6,13 +6,16 @@
              mc:Ignorable="d" 
              d:DesignHeight="348" d:DesignWidth="569">
     <Grid Name="MainGrid">
-        <DataGrid HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"
-                  ItemsSource="{Binding OnlineCourses}" Height="284" Width="512"
-                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid HorizontalAlignment="Left" Margin="26,10,0,0" VerticalAlignment="Top"
+                  ItemsSource="{Binding OnlineCourses}" Height="279" Width="512"
+                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedItem="{Binding Selected}">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="CourseColumn" Binding="{Binding Path=Course.Title}" Header="Course" Width="Auto"/>
                 <DataGridTextColumn x:Name="URLColumn" Binding="{Binding Path=URL}" Header="URL" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="369,294,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="463,294,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </UserControl>
