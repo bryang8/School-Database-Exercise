@@ -110,63 +110,6 @@ Namespace Modules.Departments.ViewModels
             Me.Departments = New ObservableCollection(Of Department)
             Refresh()
         End Sub
-
-        Public _toAdd As New Person
-        Public _okButton As ICommand
-        Public _cancelButton As ICommand
-        Public _resetButton As ICommand
-
-        Public Property Name As String
-            Get
-                Return Me._toAdd.FirstName
-            End Get
-            Set(value As String)
-                Me._toAdd.FirstName = value
-                OnPropertyChanged("Name")
-            End Set
-        End Property
-
-        Public Property Budget As String
-            Get
-                Return Me._toAdd.LastName
-            End Get
-            Set(value As String)
-                Me._toAdd.LastName = value
-                OnPropertyChanged("Budget")
-            End Set
-        End Property
-
-        Public ReadOnly Property OkButton As ICommand
-            Get
-                If Me._okButton Is Nothing Then
-                    Me._okButton = New RelayCommand(AddressOf OkCommand)
-                End If
-                Return Me._okButton
-            End Get
-        End Property
-
-        Public ReadOnly Property CancelButton As ICommand
-            Get
-                If Me._cancelButton Is Nothing Then
-                    Me._cancelButton = New RelayCommand(AddressOf CancelCommand)
-                End If
-                Return Me._cancelButton
-            End Get
-        End Property
-
-        Sub OkCommand()
-            Try
-                DataContext.DBEntities.People.Add(_toAdd)
-                DataContext.DBEntities.SaveChanges()
-                _department.Close()
-            Catch ex As Exception
-                MsgBox("No se ha podido ingresar la persona", MsgBoxStyle.Critical)
-            End Try
-        End Sub
-
-        Sub CancelCommand()
-            _department.Close()
-        End Sub
     End Class
 End Namespace
 

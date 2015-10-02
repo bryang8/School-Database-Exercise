@@ -6,9 +6,9 @@
              mc:Ignorable="d" 
 d:DesignHeight="348" d:DesignWidth="569">
     <Grid Name="MainGrid">
-        <DataGrid HorizontalAlignment="Left" Margin="25,30,0,0" VerticalAlignment="Top"
-                  ItemsSource="{Binding Courses}" Height="284" Width="512"
-                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected">
+        <DataGrid HorizontalAlignment="Left" Margin="30,30,0,0" VerticalAlignment="Top"
+                  ItemsSource="{Binding Courses}" Height="274" Width="512"
+                  AutoGenerateColumns="false" RowDetailsVisibilityMode="VisibleWhenSelected" SelectedItem="{Binding Selected}">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="CourseColumn" Binding="{Binding Path=CourseID}" Header="Course" Width="Auto"/>
                 <DataGridTextColumn x:Name="TitleColumn" Binding="{Binding Path=Title}" Header="Title" Width="Auto"/>
@@ -16,5 +16,7 @@ d:DesignHeight="348" d:DesignWidth="569">
                 <DataGridTextColumn x:Name="DepartmentIDColumn" Binding="{Binding Path=Department.Name}" Header="Department" Width="Auto"/>
             </DataGrid.Columns>
         </DataGrid>
+        <Button Content="Add" Command="{Binding AddCommand}" HorizontalAlignment="Left" Margin="366,318,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Delete" Command="{Binding DeleteCommand}" HorizontalAlignment="Left" Margin="467,318,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

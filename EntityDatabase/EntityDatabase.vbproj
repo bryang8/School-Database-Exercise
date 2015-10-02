@@ -144,6 +144,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Modules\Courses\Views\Add_EditCourse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Modules\Courses\Views\CoursesList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,7 +205,11 @@
     <Import Include="System.Windows.Navigation" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modules\Courses\ViewModels\Add_EditCourseViewModel.vb" />
     <Compile Include="Modules\Courses\ViewModels\CoursesViewModel.vb" />
+    <Compile Include="Modules\Courses\Views\Add_EditCourse.xaml.vb">
+      <DependentUpon>Add_EditCourse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Courses\Views\CoursesList.xaml.vb">
       <DependentUpon>CoursesList.xaml</DependentUpon>
     </Compile>
